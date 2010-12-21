@@ -1,3 +1,4 @@
 Dummy::Application.routes.draw do
-  root :to => "entrance#index"
+  root :to => "entrances#index"
+  resources :entrances
 end

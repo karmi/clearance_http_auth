@@ -18,6 +18,8 @@ Capybara.default_selector = :css
 require 'shoulda'
 require 'turn'
 require 'factory_girl'
+require 'rack/test'
+require 'base64'
 
 require 'clearance'
 
@@ -26,3 +28,7 @@ ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+def teardown
+  User.delete_all
+end
