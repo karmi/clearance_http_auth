@@ -1,3 +1,10 @@
 = ClearanceHttpAuth
 
-This project rocks and uses MIT-LICENSE.
+This Rails Engine provides HTTP Basic Authentication for controller
+actions in an application using Clearance [https://github.com/thoughtbot/clearance].
+
+Cf. https://github.com/thoughtbot/clearance/issues/34
+
+-----
+
+[Karel Minarik](http://karmi.cz)
