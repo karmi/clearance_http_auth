@@ -13,4 +13,5 @@ end
 group :test do
   gem "turn"
   gem "shoulda"
+  gem "factory_girl"
 end

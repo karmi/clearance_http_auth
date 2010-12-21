@@ -17,6 +17,9 @@ Capybara.default_selector = :css
 
 require 'shoulda'
 require 'turn'
+require 'factory_girl'
+
+require 'clearance'
 
 # Run any available migration
 ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
