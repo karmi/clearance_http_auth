@@ -24,29 +24,26 @@ class APITest < ActiveSupport::TestCase
     end
 
     should "deny access when bad credentials are set" do
-      get '/entrances.json', {}, {'HTTP_AUTHORIZATION' => encode_credentials('test@example.com', 'BADSANTA')}
+      authorize 'test@example.com', 'BADSANTA'
+      get '/entrances.json'
       assert_equal 401, last_response.status
     end
 
     should "grant access when proper credentials are set" do
-      get '/entrances.json', {}, {'HTTP_AUTHORIZATION' => encode_credentials('test@example.com', 'password')}
+      authorize 'test@example.com', 'password'
+      get '/entrances.json'
       assert_equal 200, last_response.status
       assert_match /Welcome/, last_response.body
     end
 
     should "not invoke HTTP authorization for incorrect format" do
-      get '/entrances.santa', {}, {'HTTP_AUTHORIZATION' => encode_credentials('test@example.com', 'password')}
+      authorize 'test@example.com', 'password'
+      get '/entrances.santa'
       assert_equal 302, last_response.status
       follow_redirect!
       assert_match /Sign in/, last_response.body
     end
 
-  end
-
-  private
-
-  def encode_credentials(username, password)
-    "Basic " + Base64.encode64("#{username}:#{password}")
   end
 
 end
