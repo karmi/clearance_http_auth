@@ -11,8 +11,7 @@ module ClearanceHttpAuth
     def call(env)
       if api_method?(env)
         @app = Rack::Auth::Basic.new(@app) do |username, password|
-          user = User.authenticate(username, password)
-          env['current_user'] = user
+          env['current_user'] = User.authenticate(username, password)
         end
       end
       @app.call(env)
