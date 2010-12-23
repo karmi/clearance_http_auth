@@ -7,9 +7,11 @@ class EntrancesController < ApplicationController
     logger.debug current_user.inspect
 
     respond_to do |format|
-      format.html { render :text => "Welcome!" }
-      format.json { render :json => { :message => 'Welcome!' }.to_json }
-      format.xml  { render :xml  => { :message => 'Welcome!' }.to_xml(:root => 'document') }
+      message = "Welcome!"
+      format.html { render :text => message }
+      format.json { render :json => { :message => message }.to_json }
+      format.xml  { render :xml  => { :message => message }.to_xml(:root => 'document') }
+      format.csv  { render :text => message }
     end
     
   end

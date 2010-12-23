@@ -36,6 +36,13 @@ class APITest < ActiveSupport::TestCase
       assert_match /Welcome/, last_response.body
     end
 
+    should "invoke HTTP authorization for formats added in configuration" do
+      authorize 'test@example.com', 'password'
+      get '/entrances.csv'
+      assert_equal 200, last_response.status
+      assert_match /Welcome/, last_response.body
+    end
+
     should "not invoke HTTP authorization for incorrect format" do
       authorize 'test@example.com', 'password'
       get '/entrances.santa'

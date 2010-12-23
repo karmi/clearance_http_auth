@@ -2,8 +2,6 @@ module ClearanceHttpAuth
 
   class Middleware
 
-    API_FORMATS = %w[   json xml csv   ]
-
     def initialize(app)
       @app = app
     end
@@ -22,7 +20,7 @@ module ClearanceHttpAuth
     def api_method?(env)
       return false unless env['action_dispatch.request.path_parameters']
       format = env['action_dispatch.request.path_parameters'][:format]
-      format && API_FORMATS.include?(format)
+      format && Configuration.api_formats.include?(format)
     end
 
   end
