@@ -1,4 +1,4 @@
-= ClearanceHttpAuth
+= Clearance::HttpAuth
 
 This Rails Engine provides HTTP Basic Authentication for controller
 actions in an application using Clearance [https://github.com/thoughtbot/clearance].

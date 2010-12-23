@@ -1,9 +1,12 @@
 require "rails"
 
-module ClearanceHttpAuth
+module Clearance
+  module HttpAuth
 
-  class Engine < Rails::Engine
-    config.clearance_http_auth = Configuration
+    class Engine < Rails::Engine
+      config.clearance_http_auth = Configuration
+    end
+
   end
 
 end

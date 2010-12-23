@@ -4,7 +4,7 @@ require "clearance_http_auth/version"
 
 Gem::Specification.new do |s|
   s.name          = "clearance_http_auth"
-  s.version       = ClearanceHttpAuth::VERSION
+  s.version       = Clearance::HttpAuth::VERSION
   s.platform      = Gem::Platform::RUBY
   s.summary       = "HTTP Basic Authentication for Clearance"
   s.homepage      = "http://github.com/karmi/clearance_http_auth"
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.require_path  = 'lib'
 
-  s.extra_rdoc_files  = [ "README.rdoc", "LICENSE" ]
+  s.extra_rdoc_files  = [ "README.rdoc", "MIT-LICENSE" ]
   s.rdoc_options      = [ "--charset=UTF-8" ]
 
   s.required_rubygems_version = ">= 1.3.6"
