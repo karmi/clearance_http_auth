@@ -1,9 +1,55 @@
 = Clearance::HttpAuth
 
-This Rails Engine provides HTTP Basic Authentication for controller
-actions in an application using Clearance [https://github.com/thoughtbot/clearance].
+The goal of this project is simple, instant HTTP Basic Authentication for any
+controller in applications using Clearance[https://github.com/thoughtbot/clearance]
+for user authentication. You can use Clearance's default, session based authentication
+in the user facing parts of your application, and use HTTP Basic Auth when connecting
+to it's API.
 
-Cf. https://github.com/thoughtbot/clearance/issues/34
+It has two parts:
+
+1. A middleware which intercepts requests to your application API
+   and performs a HTTP Basic Authentication by wrapping your application
+   in a <tt>Rack::Auth::Basic</tt> block. It supplies the provided credentials
+   to the <tt>User.authenticate</tt> method and sets an
+   <tt>env['clearance.current_user']</tt> variable.
+
+2. An overriden <tt>current_user</tt> helper method for controllers, which reads
+   the variable set in the middleware.
+
+
+== Usage
+
+First, add the gem to your Gemfile, along with +clearance+:
+
+    gem 'clearance', '~> 0.9.1'
+    gem 'clearance_http_auth'
+
+Second, include the module in your ApplicationController (or in a specific controller)
+_after_ you include Clearance::Authentication:
+
+    class ApplicationController < ActionController::Base
+      include Clearance::Authentication
+      include Clearance::HttpAuth
+    end
+
+There is no step three. When you hit your application API with the same credentials
+as when logging in the browser, you should be in:
+
+    $ curl -i -X GET -u test@example.com:password http://localhost:3000/resources.xml
+
+By default, the middleware intercepts only requests to JSON and XML formats.
+You can add more formats in your <tt>config/application.rb</tt>:
+
+    config.clearance_http_auth.api_formats << 'csv'
+
+
+= About
+
+The project originally grew out of a simple monkeypatch: https://github.com/thoughtbot/clearance/issues/34
+
+Comments and patches are welcome. Fork, add tests for features and don't break any existing ones,
+send a pull request.
 
 -----
 

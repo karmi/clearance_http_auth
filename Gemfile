@@ -8,6 +8,7 @@ gem "clearance", "~> 0.9.1"
 
 group :development do
   gem "thin"
+  gem "sdoc"
 end
 
 group :test do
