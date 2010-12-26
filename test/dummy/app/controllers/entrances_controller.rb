@@ -13,7 +13,17 @@ class EntrancesController < ApplicationController
       format.xml  { render :xml  => { :message => message }.to_xml(:root => 'document') }
       format.csv  { render :text => message }
     end
-    
+  end
+
+  def create
+
+    respond_to do |format|
+      message = "Created!"
+      format.html { render :text => message, :status => :created }
+      format.json { render :json => { :message => message }.to_json, :status => :created }
+      format.xml  { render :xml  => { :message => message }.to_xml(:root => 'document'), :status => :created }
+      format.csv  { render :text => message, :status => :created }
+    end
   end
   
 end

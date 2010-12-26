@@ -36,7 +36,9 @@ _after_ you include Clearance::Authentication:
 There is no step three. When you hit your application API with the same credentials
 as when logging in the browser, you should be in:
 
-    $ curl -i -X GET -u test@example.com:password http://localhost:3000/resources.xml
+    $ curl -i -X GET  -u test@example.com:password http://localhost:3000/books.xml
+    $ curl -i -X POST -u test@example.com:password -H "Content-Type: application/xml" http://localhost:3000/books.xml \
+           -d "<book><author>Kafka</author><title>Metamorphosis</title></book>"
 
 By default, the middleware intercepts only requests to JSON and XML formats.
 You can add more formats in your <tt>config/application.rb</tt>:

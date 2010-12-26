@@ -36,6 +36,13 @@ class APITest < ActiveSupport::TestCase
       assert_match /Welcome/, last_response.body
     end
 
+    should "grant access when proper credentials are set for POSTing" do
+      authorize 'test@example.com', 'password'
+      post '/entrances.json'
+      assert_equal 201, last_response.status
+      assert_match /Created/, last_response.body
+    end
+
     should "invoke HTTP authorization for formats added in configuration" do
       authorize 'test@example.com', 'password'
       get '/entrances.csv'
