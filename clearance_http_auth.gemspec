@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "shoulda"
 
   s.description = <<-DESC
-   Simple, instant HTTP Basic Authentication for applications
-   using Clearance [https://github.com/thoughtbot/clearance].
+   Simple, instant HTTP Basic Authentication for applications using Clearance.
   DESC
 end
