@@ -1,7 +1,7 @@
 = Clearance::HttpAuth
 
 The goal of this project is simple, instant HTTP Basic Authentication for any
-controller in applications using Clearance[https://github.com/thoughtbot/clearance]
+controller in Rails 3 applications using Clearance[https://github.com/thoughtbot/clearance]
 for user authentication. You can use Clearance's default, session based authentication
 in the user facing parts of your application, and use HTTP Basic Auth when connecting
 to it's API.
@@ -55,4 +55,4 @@ send a pull request.
 
 -----
 
-[Karel Minarik](http://karmi.cz)
+Karel Minarik (http://karmi.cz)
