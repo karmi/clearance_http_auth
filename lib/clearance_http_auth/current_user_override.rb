@@ -11,7 +11,7 @@ module Clearance
       #
       # @return [User, nil]
       def current_user
-        env['clearance.current_user'] || @_current_user || user_from_cookie
+        (env['clearance.current_user'] rescue nil) || @_current_user || user_from_cookie
       end
     end
 
