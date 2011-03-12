@@ -7,11 +7,11 @@ module Clearance
     #
     module CurrentUserOverride
 
-      # User in the current cookie
+      # Returns user authenticated from HTTP Auth or cookie
       #
       # @return [User, nil]
       def current_user
-        (env['clearance.current_user'] rescue nil) || @_current_user || user_from_cookie
+        (env['clearance.current_user'] rescue nil) || (@_current_user ||= user_from_cookie)
       end
     end
 
