@@ -7,6 +7,7 @@ require "action_view/railtie"
 require "action_mailer/railtie"
 
 Bundler.require
+require "clearance"
 require "clearance_http_auth"
 
 module Dummy
