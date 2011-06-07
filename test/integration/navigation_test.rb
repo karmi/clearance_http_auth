@@ -6,8 +6,7 @@ class NavigationTest < ActiveSupport::IntegrationCase
   setup do
     Factory.create(:email_confirmed_user,
                    :email => 'test@example.com',
-                   :password => 'password',
-                   :password_confirmation => 'password')
+                   :password => 'password')
   end
 
   context "When navigating the application, it" do

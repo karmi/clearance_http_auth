@@ -12,8 +12,7 @@ class APITest < ActiveSupport::TestCase
   def setup
     Factory.create(:email_confirmed_user,
                    :email => 'test@example.com',
-                   :password => 'password',
-                   :password_confirmation => 'password')
+                   :password => 'password')
   end
 
   context "When navigating the API, it" do
