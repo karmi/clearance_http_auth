@@ -23,13 +23,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = ">= 1.3.6"
 
-  s.add_dependency "bundler",   "~> 1.0.0"
-  s.add_dependency "clearance", ">  0.9"
+  s.add_dependency "clearance", ">  0.11"
   s.add_dependency "rack",      ">  1.2"
 
-  s.add_development_dependency "thin"
-  s.add_development_dependency "turn"
-  s.add_development_dependency "shoulda"
+  s.add_development_dependency "bundler", "~> 1.0.0"
 
   s.description = <<-DESC
    Simple, instant HTTP Basic Authentication for applications using Clearance.
