@@ -1,5 +1,5 @@
 class EntrancesController < ApplicationController
-  before_filter :authenticate
+  before_filter :authorize
 
   respond_to :html, :json, :xml
 
